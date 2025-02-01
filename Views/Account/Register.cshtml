@@ -1,0 +1,79 @@
+﻿@model RoleBasedAuthorization.ViewModel.RegisterViewModel
+
+@{
+    ViewData["title"] = "Register";
+    Layout = "_Layout";
+}
+
+<div class="account-container">
+    <div class="account-box">
+        <h2 class="text-center mb-4">Register</h2>
+        <form asp-action="Register" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Name -->
+            <div class="form-row">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control"></input>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <!-- Email -->
+            <div class="form-row">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control"></input>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <!-- Password -->
+            <div class="form-row">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" type="password"></input>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-row">
+                <label asp-for="ConfirmPassword" class="form-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" type="password"></input>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <!-- DOB -->
+            <div class="form-row">
+                <label asp-for="DateOfBirth" class="form-label"></label>
+                <input asp-for="DateOfBirth" class="form-control" type="date"></input>
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+            <!-- Role Selection -->
+            <div class="form-row">
+                <label asp-for="Role" class="form-label">Select Role</label>
+                <select asp-for="Role" class="form-control">
+                    <option value="">-- Select Role --</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Customer">Customer</option>
+                    <option value="Provider">Provider</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+
+
+            <!-- Submit Button -->
+            <div class="form-row">
+                <input type="submit" value="Register" class="btn btn-success"></input>
+            </div>
+
+            <p class="text-center mt-2">
+                Already have an account? <a asp-controller="Account" asp-action="Login" class="text-decoration-none mt-3">Login</a>
+            </p>
+            <div class="text-center">
+                <a asp-controller="Home" asp-action="Index" class="text-decoration-none mt-3">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+}
