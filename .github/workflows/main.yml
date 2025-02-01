@@ -49,6 +49,6 @@ jobs:
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'AzureDeploymentswithGitActions'  # Replace with your Azure App Service name
+        app-name: 'AppBalaji'  # Replace with your Azure App Service name
         publish-profile: ${{ secrets.azurepublishedprofile }}
         package: ./publish
