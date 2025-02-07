@@ -1,0 +1,23 @@
+﻿@model IEnumerable<RoleBasedAuthorization.ViewModel.CardModel>
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        @foreach (var card in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">@card.Title</h5>
+                        <p class="card-text">@card.Content</p>
+                        <a href="@card.ButtonLink" class="btn btn-primary">@card.ButtonText</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
